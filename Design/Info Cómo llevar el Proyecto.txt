@@ -1,0 +1,41 @@
+Info General:
+    https://en.wikipedia.org/wiki/Video_game_development#Production
+    https://www.wikihow.com/Design-a-Video-Game
+    https://www.wikihow.com/Make-a-Video-Game-from-Scratch
+
+Información sobre la estructura del proyecto y tiempos, obtenida del chat de discord:
+
+First you sit down and discuss and idea or theme
+You can also start by discussing a mechanic or two you want the game to have
+From there, you can discuss characters, settings, art style, music style, story, other game mechanics(editado)
+Once you're set, the artist will start trying to come up with a visual style for the game, the music composer will try several music styles to see which best match the game. Writers will start writing characters, backgrounds, flavor text.
+Programmers will choose which game engine is best suited for the game, learn how to use it and start prototyping the necessary systems for implementing the game mechanics you discussed
+Mycosil - Today at 4:06 PM
+The last part is the one i'm worried
+Yoru (Coding) - Today at 4:06 PM
+The game engine?
+Why?
+Mycosil - Today at 4:08 PM
+Not the game engine but how to coordinate the programmers. I dont know is best u start with the levels, item system, fights, etc
+Or maybe the order you start doesnt matter
+Yoru (Coding) - Today at 4:10 PM
+Hum...
+Prioritize what's important for the game
+If you want to make a platformer, perhaps it would make sense to start from implementing a level, the collision, the player movement
+Maybe next, add enemies for an extra challenge
+Now that the essencial is done, perhaps adding a UI to show the player life and points would be a good idea
+Do you still got time? Why not make a stopwatch, forcing the player to complete the level in a specific amount of time?
+Done. How much time is left? One week? Then perhaps you could add another level?
+If you're making a Visual Novel, then it would make sense to ask the programmer to implement a system to show dialogs and sprites first
+When this done, how about a system that allow the player to make a choice?
+I guess it will depend on the type of game you're trying to do
+Try to determine what must be in the game for it to be a game, no matter how simple.
+From there, determine which "upgrades" can be done to refine the game
+Solace Eternal - Today at 4:22 PM
+make a list of the things you want in the game
+organize them based on priority, separate into 3 tiers
+1) The absolute core -collision, player controls, the interface in general, etc
+2) core mechanics. This is where you develop the game proper. If you're working on a platformer, this is the part where you start working on what they're doing - the level design, how the player interacts with enemies, etc etc
+3) blue sky features. This is everything else, and is a list of cool stuff you'd like to have that doesn't fit in with the first two categories. This column is only to be touched if you find yourself with enough time to get them in - by which I mean in jam settings you'll probably not get to this point, but that's fine, as everything in here is optional scope-wise anyway.
+I recommend this method because it keeps you going in the right direction, so long as you can effectively seperate an idea's parts and work on them in the correct order
+if you follow this, you may not get everything you want in the game by the end of the jam, but you are garunteed to have something playable by the end of it

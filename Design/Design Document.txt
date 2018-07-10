@@ -1,0 +1,52 @@
+Juego Olas
+Tower Defense
+    Te defiendes con castillos de arena
+    Animales pequeños te ayudan a resistir
+    Conchas = Dinero
+    Fosos dinero para torre
+    
+    
+Mundo:
+    Sociedad actual, una playa desde el punto de vista de un niño jugando a castillos de arena
+    Opcional: mensaje de contaminación en el agua (boss = petroleo)
+
+Game Analysis
+    Un tower defense, donde el jugador construye castillos de arena para defender la playa de los enemigos de las olas
+    Cobnstruir los castillos y colocar, armas, upgrades (cangrejo o animales).
+    
+Mission Statement 
+
+Genre
+    Tower Defense con Upgrades
+Platform
+    PC
+Target Audience
+    Gordos de internet 
+    Tower Defense players
+    
+Storyline
+    Un niño esta jugando en la playa, y ha construido un castillo para su juguete preferido.
+    Pero si no protege el castillo, las olas lo destruyen y se llevan a su juguete.
+    MEdiante mejoras en las torres, powerups etc el niño puede defenderse hasta el final día.
+    Conforme pasa el día la marea sube y las olas son mas fuertes.
+    (Opcionalmente contaminación = MArtín)
+PJ
+    Niño (no aparece)
+    Cangrejos / animales amistosos (amigos)
+    Opcional: Hermana (obtener juguets) / Padres (depende de mecanica solar y chiringuito)
+    
+    Enemigos:
+        Restos y Basura
+        Petroleo
+        
+GamePlay
+    Fase Preparación
+    Fase Batalla
+        Línea 2D
+        Cuadrícula
+Evento
+    Crema Solar
+    Insolación
+    Bichos
+    Chiringuito
+    
