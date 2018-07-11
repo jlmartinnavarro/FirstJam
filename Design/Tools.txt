@@ -1,22 +1,42 @@
-Plot --> https://www.plot-generator.org.uk/
+Plot -->
+	https://www.plot-generator.org.uk/
 Random Generators
-    https://www.wordgenerator.net/random-word-generator.php
-    https://www.rprepository.com/community/forumthread.php?t=4067
-    http://ideagenerator.creativitygames.net/
-    http://www.springhole.net/writing_roleplaying_randomators/
-Assets --> http://myfirstgamejam.tumblr.com/assets Ya Creados
+
+	https://www.wordgenerator.net/random-word-generator.php
+
+	https://www.rprepository.com/community/forumthread.php?t=4067
+
+	http://ideagenerator.creativitygames.net/
+
+	http://www.springhole.net/writing_roleplaying_randomators/
+
+Assets --> http://myfirstgamejam.tumblr.com/assets
+	Ya Creados
+	
 
     Visual
-        Pixel Art: Creation and Editing
-            https://www.aseprite.org/ PAGO
-            https://graphicsgale.com/us/ FREE
-            Tuto
-                http://makegames.tumblr.com/post/42648699708/pixel-art-tutorial
-                https://2dwillneverdie.com/tutorial/picking-the-best-colors-for-your-sprite/
-    Music
-    
-Code --> http://myfirstgamejam.tumblr.com/resources
-http://myfirstgamejam.tumblr.com/post/163057913436/game-engines-under-construction-not-sure-what
-    UNITY 
-        Build in Functions: https://docs.unity3d.com/ScriptReference/
 
+		Pixel Art: Creation and Editing
+	
+            https://www.aseprite.org/ PAGO
+
+		    https://graphicsgale.com/us/ FREE
+
+		Tuto
+
+	                http://makegames.tumblr.com/post/42648699708/pixel-art-tutorial
+
+			https://2dwillneverdie.com/tutorial/picking-the-best-colors-for-your-sprite/
+
+			https://lospec.com/pixel-art-tutorials
+			http://www.floobynooby.com/ICG/artvalues.html
+	Music
+
+    	
+Code --> http://myfirstgamejam.tumblr.com/resources
+
+		http://myfirstgamejam.tumblr.com/post/163057913436/game-engines-under-construction-not-sure-what
+
+UNITY
+ 
+        Build in Functions: https://docs.unity3d.com/ScriptReference/
