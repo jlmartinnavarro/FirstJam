@@ -1,1 +1,17 @@
 Ideas
+
+Boss = Petroleo.
+Amigos = Animales pequeños como cangrejos, te dan la especialización en las torres.
+Dinero = Conchas.
+Mundo = Sociedad actual, una playa desde el punto de vista de un niño jugando a construir un castillo de arena.
+Mensaje ecofriendly: defendemos de la contaminación del mar.
+Historia = un niño jugando en la playa ha construido un castillo para su juguete favorito, pero las olas
+	destruyen el castillo y se llevan el juguete.
+Goal = defender el castillo hasta el final del día (por la tarde sube la marea y es más complicado)
+Persoanjes = Niño, animales pequeños, padres o hermanos.
+	Hermanos = obtener más juguetes
+	PAdres = obtener productos de chiringuito
+Fases = Preparación
+	Acción
+Escenario = Playa, defensa en la derecha, enemigos izquierda (one-way)
+Mecánicas = Crema Solar, Insolación, Bichos, Chiriguito
