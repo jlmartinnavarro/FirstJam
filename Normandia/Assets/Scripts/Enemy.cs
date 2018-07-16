@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour {
 
     public float speed = 3f;
     public float damage = 20f; //Por segundo
-
+    public float health = 100f;
     //Posición del target al que se dirige.
     private Transform target;
 
@@ -107,4 +107,17 @@ public class Enemy : MonoBehaviour {
 
     }
 
+    //Trigger. Habrá que modificarlo según el caso
+    private void OnTriggerEnter(Collider other)
+    {
+        //CASO de las balas
+        if (health > 0)
+        {
+            health -= 10;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
 }

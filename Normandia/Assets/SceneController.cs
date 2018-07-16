@@ -16,7 +16,6 @@ public class SceneController : MonoBehaviour {
             bulletSpawn.rotation);
         //Velocity
         bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.forward * velocity;
-        
     }
 	// Use this for initialization
 	void Start () {
