@@ -6,6 +6,8 @@ public class Trigger : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        this.enabled = !this.enabled;
+        ///
+        /// this.enabled = !this.enabled;
+        Destroy(this);
     }
 }
