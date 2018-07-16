@@ -1,12 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
+    public string bulletTag = "BulletTag";
 
     public float speed = 3f;
     public float damage = 20f; //Por segundo
-    public float health = 100f;
+    public float maxHealth = 100f;
+    private float health;
+
     //Posición del target al que se dirige.
     private Transform target;
 
@@ -22,8 +26,15 @@ public class Enemy : MonoBehaviour {
 
     //Distancia a la que atacar
     private float distanceToAtack = 2f;
+
+    //Barra de vida.
+    public Image healthBar;
+
     void Start()
     {
+        //Inicializa la vida
+        health = maxHealth;
+
         //Hace target y defense al primer waypoint del array
         target = Waypoints.points[waypointIndex];
         aux = GameObject.Find(target.gameObject.name);
@@ -69,7 +80,7 @@ public class Enemy : MonoBehaviour {
             //Si no quedan más objetos a destruir.
             if (waypointIndex >= Waypoints.points.Length - 1)
             {
-                //Contamos el tiempo en el que no tiene ningún target. -- JL: para qué?
+                //Contamos el tiempo en el que no tiene ningún target.
                 timer = timer + 1.0f * Time.deltaTime;
 
                 //Movimiento hacia la izquierda (Vector2.left = (-1,0).
@@ -78,7 +89,7 @@ public class Enemy : MonoBehaviour {
                 //TODO Contamos 5 segundos para hacer despawn.
                 if (timer >= 5)
                 {
-                    Debug.Log("DESTRUIDO: "+gameObject.name);
+                    Debug.Log("DESTRUIDO: "+ gameObject.name);
                     Destroy(gameObject);
                 }
             }
@@ -95,7 +106,7 @@ public class Enemy : MonoBehaviour {
     void Attack(Breakable defense)
     {
         float currentHealth = defense.getHealth();
-        defense.setHealth(currentHealth - damage *Time.deltaTime);
+        defense.setHealth(currentHealth - damage * Time.deltaTime);
     }
 
     //Pasa al siguiente target.
@@ -108,16 +119,31 @@ public class Enemy : MonoBehaviour {
     }
 
     //Trigger. Habrá que modificarlo según el caso
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider2D other)
     {
-        //CASO de las balas
-        if (health > 0)
+
+        //Bullet Collision
+        if (other.tag == bulletTag)
         {
-            health -= 10;
+            if (health > 0)
+            {
+                health -= other.gameObject.GetComponent<Bullet>().damage;
+                healthBarLogic();
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
+
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+    }
+
+    //A usar al recibir daño (barra de vida) -- No sé donde
+    public void healthBarLogic()
+    {
+        //Gráfico de vida, se llenará de 0 (min) a 1 (max) según la vida actual.
+        //Se divide health / maxHealth para conseguir número de 0 a 1 =>
+        //      Si nuestro enemigo tiene 100 de vida max y le quedan 50 estará a 0.5, que es el número que puede coger healthBar.
+        healthBar.fillAmount = health / maxHealth;
     }
 }

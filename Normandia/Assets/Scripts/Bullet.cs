@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Trigger : MonoBehaviour {
+public class Bullet : MonoBehaviour {
 
-    private void OnTriggerEnter(Collider other)
+    public float damage = 10;
+
+    private void OnTriggerEnter(Collider2D other)
     {
-        ///
         /// this.enabled = !this.enabled;
         Destroy(this);
     }
