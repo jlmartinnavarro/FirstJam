@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour {
     public Transform enemyPrefab;
-    private int waveNumber = 0;
+    private int waveNumber = 2;
 
     public float timeBetweenWaves = 5f;
-    private float countdown = 10f;
+    private float countdown = 5f;
 
     // Use this for initialization
     void Start () {
-		
+        countdown = 0f;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (countdown <= 0f)
+        if (countdown <= 0f && waveNumber < 5)
         {
             StartCoroutine(spawnWave());
             countdown = timeBetweenWaves;

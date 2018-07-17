@@ -4,12 +4,12 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-    public string bulletTag = "BulletTag";
+    public string bulletTag = "Bullet";
 
     public float speed = 3f;
     public float damage = 20f; //Por segundo
     public float maxHealth = 100f;
-    private float health;
+    private float health = 10f;
 
     //Posición del target al que se dirige.
     private Transform target;
@@ -117,14 +117,17 @@ public class Enemy : MonoBehaviour {
         target = Waypoints.points[waypointIndex];
 
     }
-
+    
     //Trigger. Habrá que modificarlo según el caso
-    private void OnTriggerEnter(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
 
+        Debug.Log("Something has entered this zone." + other.tag + " = " + bulletTag + "  " + other.tag.Equals(bulletTag));
         //Bullet Collision
-        if (other.tag == bulletTag)
+        if (other.tag.Equals(bulletTag))
         {
+            Debug.Log("Bullet");
+            Bullet bullet = other.gameObject.GetComponent<Bullet>();
             if (health > 0)
             {
                 health -= other.gameObject.GetComponent<Bullet>().damage;
@@ -137,13 +140,28 @@ public class Enemy : MonoBehaviour {
 
         }
     }
+    void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Something has exit this zone.");
+    }
+    void OnTriggerStay(Collider other)
+    {
+        Debug.Log("Something has stayed this zone.");
+    }
 
-    //A usar al recibir daño (barra de vida) -- No sé donde
-    public void healthBarLogic()
+    void OnCollisionEnter(Collision collision)
+    {
+        Debug.Log("something has hit me");
+    }
+
+//A usar al recibir daño (barra de vida) -- No sé donde
+public void healthBarLogic()
     {
         //Gráfico de vida, se llenará de 0 (min) a 1 (max) según la vida actual.
         //Se divide health / maxHealth para conseguir número de 0 a 1 =>
         //      Si nuestro enemigo tiene 100 de vida max y le quedan 50 estará a 0.5, que es el número que puede coger healthBar.
+
+        Debug.Log("HealthBAr: " + health + " / " + maxHealth + " = " + health / maxHealth);
         healthBar.fillAmount = health / maxHealth;
     }
 }
