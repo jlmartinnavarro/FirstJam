@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour {
 
-    public string enemyTag = "Enemy";
-    public float damage = 100f;
+    public float damage = 10f;
     public float bulletVelocity = 20f;
     private Transform target;
     private bool firstStep = true;
@@ -17,9 +16,10 @@ public class Bullet : MonoBehaviour {
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == enemyTag)
+        if (other.tag == SceneController.enemyTag)
         {
             /// this.enabled = !this.enabled;
+            other.gameObject.GetComponent<Enemy>().ToDamage(damage);
             Destroy(gameObject);
         }
     }

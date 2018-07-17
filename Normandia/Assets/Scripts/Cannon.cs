@@ -16,7 +16,6 @@ public class Cannon : MonoBehaviour {
     private float fireCountdown = 0f;
 
     [Header("Funcionality")]
-    public string enemyTag = "Enemy";
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     
@@ -28,7 +27,7 @@ public class Cannon : MonoBehaviour {
 
     void UpdateTarget()
     {
-        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(SceneController.enemyTag);
         float shortestDistance = Mathf.Infinity;
         GameObject nearestEnemy = null;
 

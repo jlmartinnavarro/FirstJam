@@ -196,8 +196,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ec8d7130a4fc24cb72fe4682c07725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  bulletSpawn: {fileID: 0}
 --- !u!1 &151119576
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +452,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 16.422592
+  orthographic size: 8.171542
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

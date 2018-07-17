@@ -232,7 +232,7 @@ MonoBehaviour:
   maxHealth: 100
   waypointIndex: 0
   defense: {fileID: 0}
-  healthBar: {fileID: 0}
+  healthBar: {fileID: 114033905908705890}
 --- !u!114 &114645253516300192
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -4,13 +4,14 @@ using UnityEngine.UI;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour {
-    public string bulletTag = "Bullet";
 
+    [Header("Atributos Enemigo")]
     public float speed = 3f;
     public float damage = 20f; //Por segundo
-    public float maxHealth = 100f;
-    private float health = 10f;
+    public float maxHealth = 10f;
+    private float health;
 
+    [Header("Atributos Movimiento")]
     //Posición del target al que se dirige.
     private Transform target;
 
@@ -34,7 +35,6 @@ public class Enemy : MonoBehaviour {
     {
         //Inicializa la vida
         health = maxHealth;
-
         //Hace target y defense al primer waypoint del array
         target = Waypoints.points[waypointIndex];
         aux = GameObject.Find(target.gameObject.name);
@@ -118,50 +118,40 @@ public class Enemy : MonoBehaviour {
 
     }
     
-    //Trigger. Habrá que modificarlo según el caso
+    /*
+    //Trigger. En el caso de la bala se ejecuta en la bala.
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        Debug.Log("Something has entered this zone." + other.tag + " = " + bulletTag + "  " + other.tag.Equals(bulletTag));
         //Bullet Collision
-        if (other.tag.Equals(bulletTag))
-        {
-            Debug.Log("Bullet");
-            Bullet bullet = other.gameObject.GetComponent<Bullet>();
-            if (health > 0)
-            {
-                health -= other.gameObject.GetComponent<Bullet>().damage;
-                healthBarLogic();
-            }
-            else
-            {
-                Destroy(gameObject);
-            }
+       if (other.tag.Equals(SceneController.bulletTag))
+       {
+            
 
         }
-    }
-    void OnTriggerExit(Collider other)
+    }*/
+    public void ToDamage(float damage)
     {
-        Debug.Log("Something has exit this zone.");
-    }
-    void OnTriggerStay(Collider other)
-    {
-        Debug.Log("Something has stayed this zone.");
-    }
+        if (health > 0)
+        {
 
-    void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log("something has hit me");
+            Debug.Log("Damage " + damage + " " + health);
+            //Obtenemos el daño de la bala
+            health -= damage;
+            Debug.Log("New health" + health);
+            //Actualizamos vida
+            healthBarLogic();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
-
-//A usar al recibir daño (barra de vida) -- No sé donde
-public void healthBarLogic()
+    //A usar al recibir daño (barra de vida) -- No sé donde
+    public void healthBarLogic()
     {
         //Gráfico de vida, se llenará de 0 (min) a 1 (max) según la vida actual.
         //Se divide health / maxHealth para conseguir número de 0 a 1 =>
         //      Si nuestro enemigo tiene 100 de vida max y le quedan 50 estará a 0.5, que es el número que puede coger healthBar.
-
-        Debug.Log("HealthBAr: " + health + " / " + maxHealth + " = " + health / maxHealth);
         healthBar.fillAmount = health / maxHealth;
     }
 }
