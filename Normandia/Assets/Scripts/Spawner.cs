@@ -9,6 +9,7 @@ public class Spawner : MonoBehaviour {
     public float timeBetweenWaves = 5f;
     private float countdown = 5f;
 
+    public GameObject Victoria;
     // Use this for initialization
     void Start () {
         countdown = 0f;
@@ -16,10 +17,23 @@ public class Spawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (countdown <= 0f && waveNumber < 5)
+        if (countdown <= 0f)
         {
-            StartCoroutine(spawnWave());
-            countdown = timeBetweenWaves;
+            if (waveNumber < 5)
+            {
+                StartCoroutine(spawnWave());
+                countdown = timeBetweenWaves;
+            }
+            else
+            {
+                if (GameObject.FindGameObjectsWithTag(SceneController.enemyTag).Length == 0 && GameObject.FindGameObjectsWithTag("Breakable").Length > 0)
+                {
+                    if (GameObject.FindGameObjectWithTag("Breakable").GetComponent<Breakable>().health > 0)
+                    {
+                        Victoria.SetActive(true);
+                    }
+                }
+            }
         }
         countdown -= Time.deltaTime;
     }

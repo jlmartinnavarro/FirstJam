@@ -11,8 +11,11 @@ public class GameOver : MonoBehaviour {
             //Game OVer
             Debug.Log("GAME OVER");
             gameOver.SetActive(true);
+            Destroy(other.gameObject);
+            foreach (var x in GameObject.FindGameObjectsWithTag(SceneController.enemyTag))
+            {
+                Destroy(x);
+            }
         }
     }
-
-
 }

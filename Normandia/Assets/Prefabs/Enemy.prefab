@@ -200,9 +200,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5a687f0c51a104bb51e16a4ed23a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   damage: 20
-  maxHealth: 100
+  maxHealth: 10
   waypointIndex: 0
   defense: {fileID: 0}
   healthBar: {fileID: 114033905908705890}
