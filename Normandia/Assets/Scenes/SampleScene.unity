@@ -620,6 +620,11 @@ Prefab:
       propertyPath: attackSpeed
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1505101460980800, guid: 9ee61f26991dbb14eaeefed038166e01, type: 2}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 7866945982896999795, guid: 0000000000000000d000000000000000,
+        type: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ee61f26991dbb14eaeefed038166e01, type: 2}
   m_IsPrefabParent: 0
