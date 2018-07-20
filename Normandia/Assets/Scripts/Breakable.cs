@@ -24,6 +24,7 @@ public class Breakable : MonoBehaviour {
         health = newHealth;
         if(health <= 0)
         {
+            Debug.Log("Vida");
             destroyThis();
         }
     }
@@ -42,7 +43,7 @@ public class Breakable : MonoBehaviour {
         Destroy(GetComponent<BoxCollider2D>());
         //Quitamos el sprite y se deja de ver el objeto.
         Destroy(GetComponent<SpriteRenderer>());
-
+        Destroy(healthBar);
         //Se podrían introducir animaciones de destruit el objeto aquí.
 
     }
@@ -57,11 +58,11 @@ public class Breakable : MonoBehaviour {
         Debug.Log("New tower health" + health);
         //Actualizamos vida
         healthBarLogic();
-        if(health < 0)
+        if(health <= 0)
         {
             //Destroy(gameObject);
             //return;
-            gaOver.throwGameOver();
+            //gaOver.throwGameOver();
             destroyThis();
         }
        

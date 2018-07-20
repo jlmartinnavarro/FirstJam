@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour {
         //Debug.Log("New health" + health);
         //Actualizamos vida
         healthBarLogic();
-        if (health < 0)
+        if (health <= 0)
         {
             Destroy(gameObject);
             return;
