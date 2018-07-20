@@ -6,9 +6,7 @@ public class Bullet : MonoBehaviour {
 
     public float damage = 10f;
     public float bulletVelocity = 20f;
-    private Transform target;
-    private bool firstStep = true;
-    
+    private Transform target;    
 
     public void Target (Transform tgt)
     {
@@ -44,8 +42,6 @@ public class Bullet : MonoBehaviour {
             float dTF = bulletVelocity * Time.deltaTime;
             //Efectua el movimiento de la bala
             transform.Translate(dir.normalized * dTF, Space.World);
-
-            firstStep = false;
         }
     }
 }

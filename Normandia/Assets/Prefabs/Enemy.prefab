@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 212751797585480078}
   - component: {fileID: 50923711705553490}
   - component: {fileID: 61035691223231506}
-  - component: {fileID: 114402828543307098}
+  - component: {fileID: 114951960252643134}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -189,25 +189,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114402828543307098
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1848255561591596}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a5a687f0c51a104bb51e16a4ed23a2d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 2
-  speed: 5
-  damage: 20
-  maxHealth: 10
-  waypointIndex: 0
-  defense: {fileID: 0}
-  healthBar: {fileID: 114033905908705890}
-  attackSpeed: 1
 --- !u!114 &114645253516300192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,6 +232,21 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114951960252643134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1848255561591596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ce68c708aa643a45a826fc94fe3828e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 114912328301199768, guid: 9506b68b78d63174f89bc7f8ecf3b675,
+    type: 2}
+  waypointIndex: 0
+  defense: {fileID: 0}
 --- !u!212 &212751797585480078
 SpriteRenderer:
   m_ObjectHideFlags: 1

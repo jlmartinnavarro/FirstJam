@@ -3,111 +3,86 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
+public class Enemy : MonoBehaviour
+{
 
     [Header("Atributos Enemigo")]
-    public float speed = 3f;
-    public float damage = 20f; //Por segundo
-    public float maxHealth = 10f;
-    private float health;
+    //Velocidad de Movimiento
+    protected float movSpeed;
+    //Daño
+    protected float damage;
+    //Vida Máxima
+    protected float maxHealth;
+    //Distancia a la que atacar
+    protected float attackRange;
+    //Velocidad de ataque
+    protected float attackSpeed;
+
+    [Header("Atributos Internos")]
+    protected float health;
+    //Barra de vida.
+    public Image healthBar;
+    //Used for attacking
+    private float attackCountdown = 0f;
 
     [Header("Atributos Movimiento")]
     //Posición del target al que se dirige.
-    private Transform target;
-
+    protected Transform target;
     //Índice dentro del array de Waypoints.points.
     public int waypointIndex = 0;
-
     //Objeto al que ataca.
-    public Breakable defense;
-    private GameObject aux;
+    public Breakable defense;       
 
-    //Temporizador despawn.
-    float timer = 0f;
-
-    //Distancia a la que atacar
-    private float distanceToAtack = 2f;
-
-    //Barra de vida.
-    public Image healthBar;
-
-    //Velocidad de ataque
-    public float attackSpeed = 1f;
-    private float attackCountdown = 0f;
+    /**
+     * Constructor de la clase. No se utiliza un constructor Enemy por problemas con Unity.
+     */
+    public void SetEnemy(float movSpeed, float damage, float maxHealth, float attackRange, float attackSpeed)
+    {
+        this.movSpeed = movSpeed;
+        this.damage = damage;
+        this.maxHealth = maxHealth;
+        this.attackRange = attackRange;
+        this.attackSpeed = attackSpeed;
+    }
 
     void Start()
     {
+        //Esta comprobación es por si en la creación del objeto pero antes del Start se han inicializado sus parámetros.
+        if (damage == 0)
+        {
+            SetEnemy(3f, 20f, 10f, 2f, 1f);
+        }
         //Inicializa la vida
         health = maxHealth;
         //Hace target y defense al primer waypoint del array
         target = Waypoints.points[waypointIndex];
-        aux = GameObject.Find(target.gameObject.name);
-        defense = aux.GetComponent<Breakable>();
-
-        //La última es para indicar que defense es un objeto Breakable que hereda de GameObject. 
+        defense = target.gameObject.GetComponent<Breakable>();
     }
 
     void Update()
     {
-        /*
-         * 
-         * Dirección hacia donde se dirige.
-         * Vector2 dir = target.position - transform.position;
-         * 
-         * Movimiento hacia ese punto, normalizado, con la velocidad que queremos darle al enemigo y multiplicado por Time.deltaTime,
-         * en el punto de referencia World (No se mueve respecto a otra cosa que no sea lo global).
-         * Time.deltaTime hace que el movimiento no dependa de los fps a los que vemos el juego, si no a los segundos reales que transcurren en el juego.
-         * transform.Translate(dir.normalized *speed *Time.deltaTime,Space.World);
-        */
-
-        //Comprobamos si nuestro defense NO está destruido
-        if (!defense.isDestroyed())
+        //Si estamos en rango de ataque
+        if (Vector2.Distance(transform.position, target.position) <= attackRange)
         {
-            //Si estamos a una distancia menor de X atacamos.
-            if (Vector2.Distance(transform.position, target.position) <= distanceToAtack)
-            {
-                Attack(defense);
-            }
-
-            //Si no, nos movemos hacia el.
-            else
-            {
-                Vector2 dir = target.position - transform.position;
-                transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-            }
-
-            
+            Attack(defense);
         }
-        //Si está destruido
+        //Si no, nos movemos
         else
         {
-            //Si no quedan más objetos a destruir.
-            if (waypointIndex >= Waypoints.points.Length - 1)
-            {
-                //Contamos el tiempo en el que no tiene ningún target.
-                timer = timer + 1.0f * Time.deltaTime;
-
-                //Movimiento hacia la izquierda (Vector2.left = (-1,0).
-                transform.Translate(Vector2.left * speed * Time.deltaTime, Space.World);
-
-                //TODO Contamos 5 segundos para hacer despawn.
-                if (timer >= 5)
-                {
-                    Debug.Log("DESTRUIDO: "+ gameObject.name);
-                    Destroy(gameObject);
-                }
-            }
-            //Si siguen quedando objetos a destruir.
-            else
-            {
-                //Avanzamos hasta el siguiente target.
-                getNextTarget();
-            }
+            //Dirección hacia donde se dirige.
+            Vector2 dir = target.position - transform.position;
+            /*
+            * Movimiento hacia ese punto, normalizado, con la velocidad del enemigo 
+            * y multiplicado por Time.deltaTime, en el punto de referencia World.
+            * Time.deltaTime hace que el movimiento no dependa de los fps,
+            * si no a los segundos reales que transcurren en el juego.
+           */
+            transform.Translate(dir.normalized * movSpeed * Time.deltaTime, Space.World);
         }
     }
 
     //Ataca a defense y le hace un daño equivalente a damage.
-    void Attack(Breakable defense)
+    protected void Attack(Breakable defense)
     {
         if (attackCountdown <= 0f)
         {
@@ -115,49 +90,30 @@ public class Enemy : MonoBehaviour {
             attackCountdown = 1f / attackSpeed;
         }
         attackCountdown -= Time.deltaTime;
-        
-        //defense.setHealth(currentHealth - damage * Time.deltaTime);
     }
 
     //Pasa al siguiente target.
     void getNextTarget()
-    { 
+    {
         //Si hay más waypoints se pasa al siguiente.
         waypointIndex++;
         target = Waypoints.points[waypointIndex];
-
     }
-    
-    /*
-    //Trigger. En el caso de la bala se ejecuta en la bala.
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        //Bullet Collision
-       if (other.tag.Equals(SceneController.bulletTag))
-       {
-            
 
-        }
-    }*/
     public void ToDamage(float damage)
     {
-      
-
-        //Debug.Log("Damage " + damage + " " + health);
         //Obtenemos el daño de la bala
         health -= damage;
-        //Debug.Log("New health" + health);
-        //Actualizamos vida
-        healthBarLogic();
         if (health <= 0)
         {
             Destroy(gameObject);
             return;
         }
-        
- 
+        //Actualizamos vida
+        healthBarLogic();
     }
-    //A usar al recibir daño (barra de vida) -- No sé donde
+
+    //Lógica de la barra de Vida
     public void healthBarLogic()
     {
         //Gráfico de vida, se llenará de 0 (min) a 1 (max) según la vida actual.

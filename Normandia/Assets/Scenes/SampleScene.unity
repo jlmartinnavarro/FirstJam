@@ -186,7 +186,6 @@ Transform:
   - {fileID: 303227572}
   m_Father: {fileID: 0}
   m_RootOrder: 5
-  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &136951875
 MonoBehaviour:
@@ -226,7 +225,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
-  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &250204495
 GameObject:
@@ -271,7 +269,6 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.26222205, y: -2.65}
-  m_Offset: {x: -0.23322201, y: -2.65}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -283,7 +280,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   serializedVersion: 2
   m_Size: {x: 14.675556, y: 1.29}
-  m_Size: {x: 12.500158, y: 1.29}
   m_EdgeRadius: 0
 --- !u!212 &250204499
 SpriteRenderer:
@@ -618,7 +614,6 @@ Prefab:
     - target: {fileID: 4230373904510202, guid: 9ee61f26991dbb14eaeefed038166e01, type: 2}
       propertyPath: m_RootOrder
       value: 7
-      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 114326731229572170, guid: 9ee61f26991dbb14eaeefed038166e01,
         type: 2}
@@ -678,7 +673,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.173771
+  orthographic size: 6.1762233
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -768,7 +763,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 6
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &746241145
 Prefab:
@@ -1122,7 +1116,6 @@ Transform:
   - {fileID: 904266499}
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1884326655
 GameObject:
@@ -1215,7 +1208,6 @@ Transform:
   m_GameObject: {fileID: 2044959572}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -133.33334, y: -76.66668, z: 0}
-  m_LocalPosition: {x: -133.33334, y: -76.66667, z: 0}
   m_LocalScale: {x: 33.333336, y: 33.333336, z: 0}
   m_Children:
   - {fileID: 1466230601}
