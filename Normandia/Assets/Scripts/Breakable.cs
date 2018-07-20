@@ -9,8 +9,9 @@ public class Breakable : MonoBehaviour {
     public float maxHealth = 100f;
     //Barra de vida.
     public Image healthBar;
-    //Derrota
-    public GameOver gaOver;
+    //para ocultar la barra
+    public GameObject objHealthBar;
+    
 
     //Setters y getters de toda la vida
 
@@ -43,7 +44,8 @@ public class Breakable : MonoBehaviour {
         Destroy(GetComponent<BoxCollider2D>());
         //Quitamos el sprite y se deja de ver el objeto.
         Destroy(GetComponent<SpriteRenderer>());
-        Destroy(healthBar);
+        //Ocultar barra
+        objHealthBar.SetActive(false);
         //Se podrían introducir animaciones de destruit el objeto aquí.
 
     }
