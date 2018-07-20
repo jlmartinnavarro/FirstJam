@@ -31,6 +31,10 @@ public class Enemy : MonoBehaviour {
     //Barra de vida.
     public Image healthBar;
 
+    //Velocidad de ataque
+    public float attackSpeed = 1f;
+    private float attackCountdown = 0f;
+
     void Start()
     {
         //Inicializa la vida
@@ -105,8 +109,14 @@ public class Enemy : MonoBehaviour {
     //Ataca a defense y le hace un daño equivalente a damage.
     void Attack(Breakable defense)
     {
-        float currentHealth = defense.getHealth();
-        defense.setHealth(currentHealth - damage * Time.deltaTime);
+        if (attackCountdown <= 0f)
+        {
+            defense.ToDamage(damage);
+            attackCountdown = 1f / attackSpeed;
+        }
+        attackCountdown -= Time.deltaTime;
+        
+        //defense.setHealth(currentHealth - damage * Time.deltaTime);
     }
 
     //Pasa al siguiente target.
@@ -131,20 +141,21 @@ public class Enemy : MonoBehaviour {
     }*/
     public void ToDamage(float damage)
     {
-        if (health > 0)
-        {
+      
 
-            Debug.Log("Damage " + damage + " " + health);
-            //Obtenemos el daño de la bala
-            health -= damage;
-            Debug.Log("New health" + health);
-            //Actualizamos vida
-            healthBarLogic();
-        }
-        else
+        //Debug.Log("Damage " + damage + " " + health);
+        //Obtenemos el daño de la bala
+        health -= damage;
+        //Debug.Log("New health" + health);
+        //Actualizamos vida
+        healthBarLogic();
+        if (health < 0)
         {
             Destroy(gameObject);
+            return;
         }
+        
+ 
     }
     //A usar al recibir daño (barra de vida) -- No sé donde
     public void healthBarLogic()

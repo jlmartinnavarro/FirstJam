@@ -1,10 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class Breakable : MonoBehaviour {
 
     public float health = 100f;
+    public float maxHealth = 100f;
+    //Barra de vida.
+    public Image healthBar;
+    //Derrota
+    public GameOver gaOver;
 
     //Setters y getters de toda la vida
 
@@ -39,6 +45,34 @@ public class Breakable : MonoBehaviour {
 
         //Se podrían introducir animaciones de destruit el objeto aquí.
 
+    }
+
+    public void ToDamage(float damage)
+    {
+       
+
+        Debug.Log("Tower Damage " + damage + " " + health);
+        //Obtenemos el daño recibido
+        health -= damage;
+        Debug.Log("New tower health" + health);
+        //Actualizamos vida
+        healthBarLogic();
+        if(health < 0)
+        {
+            //Destroy(gameObject);
+            //return;
+            gaOver.throwGameOver();
+            destroyThis();
+        }
+       
+    }
+    //A usar al recibir daño (barra de vida) -- No sé donde
+    public void healthBarLogic()
+    {
+        //Gráfico de vida, se llenará de 0 (min) a 1 (max) según la vida actual.
+        //Se divide health / maxHealth para conseguir número de 0 a 1 =>
+        //      Si nuestra torre tiene 100 de vida max y le quedan 50 estará a 0.5, que es el número que puede coger healthBar.
+        healthBar.fillAmount = health / maxHealth;
     }
 
 }

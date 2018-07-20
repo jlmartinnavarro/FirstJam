@@ -18,4 +18,13 @@ public class GameOver : MonoBehaviour {
             }
         }
     }
+    public void throwGameOver()
+    {
+        Debug.Log("GAME OVER");
+        gameOver.SetActive(true);
+        foreach (var e in GameObject.FindGameObjectsWithTag(SceneController.enemyTag))
+        {
+            Destroy(e);
+        }
+    }
 }

@@ -610,9 +610,20 @@ Prefab:
       propertyPath: m_RootOrder
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 114326731229572170, guid: 9ee61f26991dbb14eaeefed038166e01,
+        type: 2}
+      propertyPath: attackSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9ee61f26991dbb14eaeefed038166e01, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &464302828 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114875404898077066, guid: 9506b68b78d63174f89bc7f8ecf3b675,
+    type: 2}
+  m_PrefabInternal: {fileID: 1401207611}
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1001 &505454320
 Prefab:
   m_ObjectHideFlags: 0
@@ -699,7 +710,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 15.382313
+  orthographic size: 5.173771
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -829,6 +840,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114971311879500638, guid: 275d70f2855319241b5f36b71fab3636,
+        type: 2}
+      propertyPath: healthBar
+      value: 
+      objectReference: {fileID: 464302828}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 275d70f2855319241b5f36b71fab3636, type: 2}
   m_IsPrefabParent: 0
