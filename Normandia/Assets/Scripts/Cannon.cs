@@ -18,10 +18,12 @@ public class Cannon : MonoBehaviour {
     [Header("Funcionality")]
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
+    public bool auto = true;
     
 
     // Use this for initialization
     void Start () {
+        auto = true;
 		
 	}
 
@@ -51,24 +53,43 @@ public class Cannon : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        UpdateTarget();
-        if (target == null)
+        if (auto)
         {
-            return;
-        }
- 
-        Vector3 vectorToTarget = target.position - transform.position;
-        float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
-        Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * aimSpeed);
+            UpdateTarget();
+            if (target == null)
+            {
+                return;
+            }
 
-        if(fireCountdown <= 0f)
-        {
-            Fire();
-            fireCountdown = 1f / attackSpeed;
+            Vector3 vectorToTarget = target.position - transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * aimSpeed);
+
+            if (fireCountdown <= 0f)
+            {
+                Fire();
+                fireCountdown = 1f / attackSpeed;
+            }
+            fireCountdown -= Time.deltaTime;
         }
-        fireCountdown -= Time.deltaTime;
-        
+        else
+        {
+            Vector3 shootDirection;
+            shootDirection = Input.mousePosition;
+            shootDirection.z = 0.0f;
+            shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
+            Vector3 vectorToTarget = shootDirection- transform.position;
+            float angle = Mathf.Atan2(vectorToTarget.y, vectorToTarget.x) * Mathf.Rad2Deg;
+            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * aimSpeed);
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                ManualShot();
+            }
+
+        }
 
     }
     
@@ -93,9 +114,37 @@ public class Cannon : MonoBehaviour {
        
     }
 
+    void ManualShot()
+    {
+        //...setting shoot direction
+        Vector3 shootDirection;
+        shootDirection = Input.mousePosition;
+        shootDirection.z = 0.0f;
+        shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
+        shootDirection = shootDirection - transform.position;
+        //...instantiating the rocket
+        GameObject bulletGO = (GameObject)Instantiate(
+           bulletPrefab,
+           bulletSpawn.position,
+           bulletSpawn.rotation);
+
+
+        CannonBall bullet = bulletGO.GetComponent<CannonBall>();
+        bullet.setDir(shootDirection.normalized);
+
+
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, range);
     }
+
+    private void OnMouseDown()
+    {
+        auto = !auto;
+    }
+
+    
 }
