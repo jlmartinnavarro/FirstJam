@@ -9,6 +9,7 @@ TagManager:
   - Bullet
   - BulletTag
   - floor
+  - worldBorder
   layers:
   - Default
   - TransparentFX

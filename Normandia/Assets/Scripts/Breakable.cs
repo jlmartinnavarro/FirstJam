@@ -54,10 +54,10 @@ public class Breakable : MonoBehaviour {
     {
        
 
-        Debug.Log("Tower Damage " + damage + " " + health);
+        //Debug.Log("Tower Damage " + damage + " " + health);
         //Obtenemos el daño recibido
         health -= damage;
-        Debug.Log("New tower health" + health);
+        //Debug.Log("New tower health" + health);
         //Actualizamos vida
         healthBarLogic();
         if(health <= 0)

@@ -19,7 +19,8 @@ public class Cannon : MonoBehaviour {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public bool auto = true;
-    
+    public GameObject manualbulletPrefab;
+
 
     // Use this for initialization
     void Start () {
@@ -120,11 +121,13 @@ public class Cannon : MonoBehaviour {
         Vector3 shootDirection;
         shootDirection = Input.mousePosition;
         shootDirection.z = 0.0f;
-        shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
+        //shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
         shootDirection = shootDirection - transform.position;
+        
+        Debug.Log("ShootDirection: " + shootDirection);
         //...instantiating the rocket
         GameObject bulletGO = (GameObject)Instantiate(
-           bulletPrefab,
+           manualbulletPrefab,
            bulletSpawn.position,
            bulletSpawn.rotation);
 

@@ -20,11 +20,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4683765760182586}
   - component: {fileID: 212059752012930356}
-  - component: {fileID: 50024375986086518}
   - component: {fileID: 114016494531271978}
+  - component: {fileID: 58142887094929044}
+  - component: {fileID: 50438913038467262}
   m_Layer: 0
   m_Name: cannonball
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!50 &50024375986086518
+--- !u!50 &50438913038467262
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 1
@@ -59,9 +60,24 @@ Rigidbody2D:
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
-  m_SleepingMode: 2
+  m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &58142887094929044
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1504344507130252}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.41500005
 --- !u!114 &114016494531271978
 MonoBehaviour:
   m_ObjectHideFlags: 1
