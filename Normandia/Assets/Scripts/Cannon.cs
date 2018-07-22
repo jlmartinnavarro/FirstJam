@@ -121,7 +121,7 @@ public class Cannon : MonoBehaviour {
         Vector3 shootDirection;
         shootDirection = Input.mousePosition;
         shootDirection.z = 0.0f;
-        //shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
+        shootDirection = Camera.main.ScreenToWorldPoint(shootDirection);
         shootDirection = shootDirection - transform.position;
         
         Debug.Log("ShootDirection: " + shootDirection);

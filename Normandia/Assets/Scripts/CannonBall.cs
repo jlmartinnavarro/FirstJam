@@ -71,7 +71,7 @@ public class CannonBall : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float realV = bulletVelocity * Time.deltaTime;
-        transform.Translate(dir * realV);
+        transform.Translate(dir * realV,Space.World);
         
     }
 }
