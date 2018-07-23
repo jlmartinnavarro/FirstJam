@@ -85,10 +85,12 @@ public class Cannon : MonoBehaviour {
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * aimSpeed);
 
-            if (Input.GetMouseButtonDown(0))
-            {
+            if (Input.GetMouseButtonDown(0) && fireCountdown <= 0f)
+            {            
                 ManualShot();
+                fireCountdown = 1f / attackSpeed;              
             }
+            fireCountdown -= Time.deltaTime;
 
         }
 
@@ -148,6 +150,8 @@ public class Cannon : MonoBehaviour {
     {
         auto = !auto;
     }
+
+
 
     
 }
