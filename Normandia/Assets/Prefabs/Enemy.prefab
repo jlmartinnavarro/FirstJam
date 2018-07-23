@@ -220,6 +220,7 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   waypointIndex: 0
   defense: {fileID: 0}
+  timeBetweenTicks: 1
 --- !u!114 &114808470668765740
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -262,6 +263,7 @@ MonoBehaviour:
     type: 2}
   waypointIndex: 0
   defense: {fileID: 0}
+  timeBetweenTicks: 1
 --- !u!212 &212751797585480078
 SpriteRenderer:
   m_ObjectHideFlags: 1

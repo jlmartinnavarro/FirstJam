@@ -31,7 +31,11 @@ public class Enemy : MonoBehaviour
     //Índice dentro del array de Waypoints.points.
     public int waypointIndex = 0;
     //Objeto al que ataca.
-    public Breakable defense;       
+    public Breakable defense;
+
+    [Header("Logica Laser")]
+    public float timeBetweenTicks = 1f;
+    private float laserDamageCountdown = 0f;
 
     /**
      * Constructor de la clase. No se utiliza un constructor Enemy por problemas con Unity.
@@ -57,6 +61,8 @@ public class Enemy : MonoBehaviour
         //Hace target y defense al primer waypoint del array
         target = Waypoints.points[waypointIndex];
         defense = target.gameObject.GetComponent<Breakable>();
+
+        laserDamageCountdown = 0f;
     }
 
     void Update()
@@ -120,5 +126,33 @@ public class Enemy : MonoBehaviour
         //Se divide health / maxHealth para conseguir número de 0 a 1 =>
         //      Si nuestro enemigo tiene 100 de vida max y le quedan 50 estará a 0.5, que es el número que puede coger healthBar.
         healthBar.fillAmount = health / maxHealth;
+    }
+
+   /* private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "laser")
+        {
+            laserDamageCountdown = 1f / timeBetweenTicks;
+            if (laserDamageCountdown <= 0f)
+            {
+                Debug.Log("Laser Damge");
+                ToDamage(collision.gameObject.GetComponent<Laser_bullet>().getDamage());
+            }
+            laserDamageCountdown -= Time.deltaTime;
+        }
+        
+    }*/
+
+    public void laserDamage(float damage)
+    {
+        if (laserDamageCountdown <= 0f)
+        {
+            laserDamageCountdown = 1f / timeBetweenTicks;
+            
+                Debug.Log("Laser tick");
+                ToDamage(damage);
+            
+        }
+        laserDamageCountdown -= Time.deltaTime;
     }
 }
