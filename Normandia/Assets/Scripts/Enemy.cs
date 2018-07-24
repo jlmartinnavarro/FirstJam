@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-
+    
     [Header("Atributos Enemigo")]
     //Velocidad de Movimiento
     protected float movSpeed;
@@ -17,7 +17,8 @@ public class Enemy : MonoBehaviour
     protected float attackRange;
     //Velocidad de ataque
     protected float attackSpeed;
-
+    //Money
+    protected int money;
     [Header("Atributos Internos")]
     protected float health;
     //Barra de vida.
@@ -40,21 +41,22 @@ public class Enemy : MonoBehaviour
     /**
      * Constructor de la clase. No se utiliza un constructor Enemy por problemas con Unity.
      */
-    public void SetEnemy(float movSpeed, float damage, float maxHealth, float attackRange, float attackSpeed)
+    public void SetEnemy(float movSpeed, float damage, float maxHealth, float attackRange, float attackSpeed, int money)
     {
         this.movSpeed = movSpeed;
         this.damage = damage;
         this.maxHealth = maxHealth;
         this.attackRange = attackRange;
         this.attackSpeed = attackSpeed;
+        this.money = money;
     }
 
-    void Start()
+    protected void Init()
     {
         //Esta comprobación es por si en la creación del objeto pero antes del Start se han inicializado sus parámetros.
         if (damage == 0)
         {
-            SetEnemy(3f, 20f, 10f, 2f, 1f);
+            SetEnemy(3f, 20f, 10f, 2f, 1f, 3);
         }
         //Inicializa la vida
         health = maxHealth;
@@ -63,6 +65,10 @@ public class Enemy : MonoBehaviour
         defense = target.gameObject.GetComponent<Breakable>();
 
         laserDamageCountdown = 0f;
+    }
+    void Start()
+    {
+        Init();
     }
 
     void Update()
@@ -113,6 +119,7 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            SceneController.globalMoney += money;
             return;
         }
         //Actualizamos vida

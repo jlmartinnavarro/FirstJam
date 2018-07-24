@@ -33,8 +33,7 @@ public class Breakable : MonoBehaviour {
     //Comprueba si no tiene vida, o sea, si está destruido.
     public bool isDestroyed()
     {
-        if (getHealth() <= 0) return true;
-        else return false;
+        return getHealth() <= 0;
     }
 
     //El objeto no se debería destruir, únicamente se debería "ocultar"

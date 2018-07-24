@@ -153,8 +153,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc1b976c32d83824a898dc2ca56f6fb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 4842233155737384, guid: 3d0112d07e944ce4892e25b51a3462af,
+  enemyPrefabNormal: {fileID: 4483875830733824, guid: 82c1f473d7c01604bb8ca8b64101f136,
     type: 2}
+  enemyPrefabSmall: {fileID: 4352781262796800, guid: 8c4f14de1b533ee4d89f4034f7fc7715,
+    type: 2}
+  enemyPrefabBig: {fileID: 4225767587954674, guid: 881dccecb1c1dae45bc662a1dea33223,
+    type: 2}
+  enemyPrefab: []
   timeBetweenWaves: 5
   Victoria: {fileID: 2044959572}
 --- !u!1 &136951873
@@ -198,6 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22ec8d7130a4fc24cb72fe4682c07725, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startMoney: 100
 --- !u!1 &151119576
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,23 +3,31 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour {
-    public Transform enemyPrefab;
-    private int waveNumber = 2;
+    public Transform enemyPrefabNormal;
+    public Transform enemyPrefabSmall;
+    public Transform enemyPrefabBig;
+    public Transform[] enemyPrefab;
+    private int waveNumber = 5;
+    float waitBetweeenEnemies = 1f;
 
-    public float timeBetweenWaves = 5f;
+    public float timeBetweenWaves = 10f;
     private float countdown = 5f;
 
     public GameObject Victoria;
     // Use this for initialization
     void Start () {
         countdown = 0f;
+        enemyPrefab = new Transform[3];
+        enemyPrefab[0] = enemyPrefabNormal;
+        enemyPrefab[1] = enemyPrefabSmall;
+        enemyPrefab[2] = enemyPrefabBig;
 	}
 	
 	// Update is called once per frame
 	void Update () {
         if (countdown <= 0f)
         {
-            if (waveNumber < 5)
+            if (waveNumber < 10)
             {
                 StartCoroutine(spawnWave());
                 countdown = timeBetweenWaves;
@@ -43,9 +51,10 @@ public class Spawner : MonoBehaviour {
         //TODO parametros de la wave desde array
         for (int i = 0; i < waveNumber; i++)
         {
+            Debug.Log("i " + i + " % " + enemyPrefab.Length + " " + i % enemyPrefab.Length);
             //TODO pasar ID de enemigo, espera entre enemigos desde array de información
-            SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            SpawnEnemy(i % enemyPrefab.Length);
+            yield return new WaitForSeconds(waitBetweeenEnemies);
         }
         waveNumber++;
 
@@ -55,9 +64,9 @@ public class Spawner : MonoBehaviour {
     }
 
     //TODO pasar ID de enemigo
-    void SpawnEnemy()
+    void SpawnEnemy(int i)
     {
-        Instantiate(enemyPrefab, this.gameObject.GetComponent<Transform>().position, this.gameObject.GetComponent<Transform>().rotation);
+        Instantiate(enemyPrefab[i], this.gameObject.GetComponent<Transform>().position, this.gameObject.GetComponent<Transform>().rotation);
     }
 
 
