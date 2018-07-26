@@ -257,8 +257,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 250204495}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -2, y: 1.5, z: 1}
+  m_LocalPosition: {x: 4.94, y: 4.22, z: 0}
+  m_LocalScale: {x: -2, y: 1.79, z: 1}
   m_Children: []
   m_Father: {fileID: 1057532703}
   m_RootOrder: 0
@@ -275,18 +275,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.26222205, y: -2.65}
+  m_Offset: {x: -0.086782455, y: -4.707366}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12, y: 7.49}
+    oldSize: {x: 19.2, y: 10.8}
     newSize: {x: 12, y: 7.49}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.675556, y: 1.29}
+  m_Size: {x: 19.163448, y: 1.4584389}
   m_EdgeRadius: 0
 --- !u!61 &250204498
 BoxCollider2D:
@@ -300,18 +300,18 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.26222205, y: -2.65}
+  m_Offset: {x: -0.04114151, y: -4.719397}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12, y: 7.49}
+    oldSize: {x: 19.2, y: 10.8}
     newSize: {x: 12, y: 7.49}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 14.675556, y: 1.29}
+  m_Size: {x: 19.144356, y: 1.4825029}
   m_EdgeRadius: 0
 --- !u!212 &250204499
 SpriteRenderer:
@@ -348,9 +348,9 @@ SpriteRenderer:
   m_SortingLayerID: 480324305
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 8b3b162926eb4be4184cfbbd5f7e5221, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e737474b033864541aa05671330ee15e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 12, y: 7.49}
@@ -762,7 +762,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.1762233
+  orthographic size: 8.473772
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -785,7 +785,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 5.31, y: 3.43, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
