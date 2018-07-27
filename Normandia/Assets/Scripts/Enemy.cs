@@ -119,6 +119,8 @@ public class Enemy : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            ScoreManager.score += money;
+            MoneyManager.money += money;
             SceneController.globalMoney += money;
             return;
         }
