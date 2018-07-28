@@ -11,6 +11,7 @@ TagManager:
   - floor
   - worldBorder
   - laser
+  - Weapon
   layers:
   - Default
   - TransparentFX
