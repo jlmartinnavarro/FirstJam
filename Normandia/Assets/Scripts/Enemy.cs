@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour
 
     protected void Init()
     {
+        this.gameObject.tag = SceneController.enemyTag;
         //Esta comprobación es por si en la creación del objeto pero antes del Start se han inicializado sus parámetros.
         if (damage == 0)
         {

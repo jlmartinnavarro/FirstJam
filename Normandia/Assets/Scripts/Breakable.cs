@@ -11,7 +11,7 @@ public class Breakable : MonoBehaviour {
     public Image healthBar;
     //para ocultar la barra
     public GameObject objHealthBar;
-    
+    public GameOver end;
 
     //Setters y getters de toda la vida
 
@@ -47,6 +47,7 @@ public class Breakable : MonoBehaviour {
         objHealthBar.SetActive(false);
         //Se podrían introducir animaciones de destruit el objeto aquí.
 
+        end.throwGameOver();
     }
 
     public void ToDamage(float damage)

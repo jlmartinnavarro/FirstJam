@@ -7,7 +7,7 @@ public class Spawner : MonoBehaviour {
     public Transform enemyPrefabSmall;
     public Transform enemyPrefabBig;
     public Transform[] enemyPrefab;
-    private int waveNumber = 5;
+    public int waveNumber = 5;
     float waitBetweeenEnemies = 1f;
 
     public float timeBetweenWaves = 10f;
@@ -21,11 +21,12 @@ public class Spawner : MonoBehaviour {
         enemyPrefab[0] = enemyPrefabNormal;
         enemyPrefab[1] = enemyPrefabSmall;
         enemyPrefab[2] = enemyPrefabBig;
+        SceneController.globalMoney = SceneController.startMoney;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (countdown <= 0f)
+        if (countdown <= 0f && !SceneController.gameOver)
         {
             if (waveNumber < 10)
             {

@@ -8,14 +8,7 @@ public class GameOver : MonoBehaviour {
     {
         if (other.tag == SceneController.enemyTag)
         {
-            //Game OVer
-            Debug.Log("GAME OVER");
-            gameOver.SetActive(true);
-            Destroy(other.gameObject);
-            foreach (var x in GameObject.FindGameObjectsWithTag(SceneController.enemyTag))
-            {
-                Destroy(x);
-            }
+            throwGameOver();   
         }
     }
     public void throwGameOver()
@@ -26,5 +19,6 @@ public class GameOver : MonoBehaviour {
         {
             Destroy(e);
         }
+        SceneController.gameOver = true;
     }
 }
