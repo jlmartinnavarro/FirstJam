@@ -15,6 +15,7 @@ public class Laser : MonoBehaviour {
     public float attackSpeed = 1f;
     private float fireCountdown = 0f;
     public float laserDuration = 3f;
+    public float damage = 10f;
 
     [Header("Funcionality")]
     public GameObject bulletPrefab;
@@ -24,6 +25,7 @@ public class Laser : MonoBehaviour {
     private bool NotShooting = true;
     private GameObject actualShoot;
     private float laserCountdown = 0f;
+    public int upgradeCost = 100;
 
 
     // Use this for initialization
@@ -32,8 +34,9 @@ public class Laser : MonoBehaviour {
         auto = true;
         NotShooting = true;
         actualShoot = null;
+        upgradeCost = 100;
 
-}
+    }
 
     void UpdateTarget()
     {
@@ -129,6 +132,7 @@ public class Laser : MonoBehaviour {
 
         Laser_bullet LBullet = bulletGO.GetComponent<Laser_bullet>();
         LBullet.setRotation(transform.rotation);
+        LBullet.setDamage(damage);
 
 
         laserCountdown = laserDuration;
@@ -156,6 +160,7 @@ public class Laser : MonoBehaviour {
 
         Laser_bullet LBullet = bulletGO.GetComponent<Laser_bullet>();
         LBullet.setRotation(transform.rotation);
+        LBullet.setDamage(damage);
 
 
         laserCountdown = laserDuration;
@@ -174,7 +179,17 @@ public class Laser : MonoBehaviour {
         auto = !auto;
     }
 
+    public void Upgrade()
+    {
+        if (SceneController.globalMoney >= upgradeCost)
+        {
 
+
+            damage = damage + 5f;
+            SceneController.globalMoney = SceneController.globalMoney - upgradeCost;
+
+        }
+    }
 
 
 }

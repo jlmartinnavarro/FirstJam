@@ -66,6 +66,8 @@ public class Enemy : MonoBehaviour
         defense = target.gameObject.GetComponent<Breakable>();
 
         laserDamageCountdown = 0f;
+
+       
     }
     void Start()
     {
@@ -155,12 +157,13 @@ public class Enemy : MonoBehaviour
 
     public void laserDamage(float damage)
     {
+        
         if (laserDamageCountdown <= 0f)
         {
             laserDamageCountdown = 1f / timeBetweenTicks;
-            
-                Debug.Log("Laser tick");
-                ToDamage(damage);
+            //Debug.Log("Laser tick " + laserDamageCountdown);
+
+            ToDamage(damage);
             
         }
         laserDamageCountdown -= Time.deltaTime;

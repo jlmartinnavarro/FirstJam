@@ -51,6 +51,11 @@ public class Laser_bullet : MonoBehaviour {
         transform.rotation = rot;
     }
 
+    public void setDamage(float d)
+    {
+        damage = d;
+    }
+
     public float getDamage()
     {
         return damage;
