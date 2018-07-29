@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour {
     public Transform enemyPrefabBig;
     public Transform[] enemyPrefab;
     public int waveNumber = 5;
+    public bool boss = false;
     float waitBetweeenEnemies = 1f;
 
     public float timeBetweenWaves = 10f;
@@ -39,7 +40,15 @@ public class Spawner : MonoBehaviour {
                 {
                     if (GameObject.FindGameObjectWithTag("Breakable").GetComponent<Breakable>().health > 0)
                     {
-                        Victoria.SetActive(true);
+                        if (boss)
+                        {
+                            Victoria.SetActive(true);
+                        }
+                        else
+                        {
+                            //Spawn Boss
+
+                        }
                     }
                 }
             }

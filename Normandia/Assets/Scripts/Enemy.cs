@@ -134,6 +134,8 @@ public class Enemy : MonoBehaviour
     //Lógica de la barra de Vida
     public void healthBarLogic()
     {
+
+        Debug.Log("Atack Speed" + attackSpeed + " = " + health);
         //Gráfico de vida, se llenará de 0 (min) a 1 (max) según la vida actual.
         //Se divide health / maxHealth para conseguir número de 0 a 1 =>
         //      Si nuestro enemigo tiene 100 de vida max y le quedan 50 estará a 0.5, que es el número que puede coger healthBar.
